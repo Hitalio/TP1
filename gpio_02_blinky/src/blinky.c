@@ -66,12 +66,20 @@ int main(void){
    while(1) {
 
       /* Prendo el led azul */
+<<<<<<< HEAD
       gpioWrite( LEDR, ON );
+=======
+      gpioWrite( LEDB, ON );
+>>>>>>> ba692c252f8db0d48e030b042ab966aec33afac0
 
       delay(500);
 
       /* Apago el led azul */
+<<<<<<< HEAD
       gpioWrite( LEDR, OFF );
+=======
+      gpioWrite( LEDB, OFF );
+>>>>>>> ba692c252f8db0d48e030b042ab966aec33afac0
 
       delay(500);
 
