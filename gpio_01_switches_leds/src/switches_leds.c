@@ -37,8 +37,8 @@
 
 /*==================[inclusions]=============================================*/
 
-//#include "blinky.h"   // <= own header (optional)
-#include "sapi.h"       // <= sAPI header
+//#include "switches_leds.h"   // <= own header (optional)
+#include "sapi.h"              // <= sAPI header
 
 /*==================[macros and definitions]=================================*/
 
@@ -55,25 +55,38 @@
 /*==================[external functions definition]==========================*/
 
 /* FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE RESET. */
-int main(void){
+int main(void)
+{
 
    /* ------------- INICIALIZACIONES ------------- */
 
    /* Inicializar la placa */
    boardConfig();
 
+   gpioConfig( GPIO0, GPIO_INPUT );
+
+   gpioConfig( GPIO1, GPIO_OUTPUT );
+
+   /* Variable para almacenar el valor de tecla leido */
+   bool_t valor;
+
    /* ------------- REPETIR POR SIEMPRE ------------- */
    while(1) {
 
-      /* Prendo el led azul */
-      gpioWrite( LEDR, ON );
+      valor = !gpioRead( TEC1 );
+      gpioWrite( LEDB, valor );
 
-      delay(500);
+      valor = !gpioRead( TEC2 );
+      gpioWrite( LED1, valor );
 
-      /* Apago el led azul */
-      gpioWrite( LEDR, OFF );
+      valor = !gpioRead( TEC3 );
+      gpioWrite( LED2, valor );
 
-      delay(500);
+      valor = !gpioRead( TEC4 );
+      gpioWrite( LED3, valor );
+
+      valor = !gpioRead( GPIO0 );
+      gpioWrite( GPIO1, valor );
 
    }
 
