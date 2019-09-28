@@ -1,4 +1,4 @@
-/* Copyright 2016, Eric Pernia.
+/* Copyright 2015-2016, Eric Pernia.
  * All rights reserved.
  *
  * This file is part sAPI library for microcontrollers.
@@ -31,56 +31,32 @@
  *
  */
 
-/*
- * Date: 2016-04-26
- */
+/* Date: 2015-09-23 */
+
+#ifndef _LED_SEQUENCES_H_
+#define _LED_SEQUENCES_H_
 
 /*==================[inclusions]=============================================*/
 
-//#include "blinky.h"   // <= own header (optional)
-#include "sapi.h"       // <= sAPI header
+/*==================[cplusplus]==============================================*/
 
-/*==================[macros and definitions]=================================*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/*==================[internal data declaration]==============================*/
+/*==================[macros]=================================================*/
 
-/*==================[internal functions declaration]=========================*/
+/*==================[typedef]================================================*/
 
-/*==================[internal data definition]===============================*/
+/*==================[external data declaration]==============================*/
 
-/*==================[external data definition]===============================*/
+/*==================[external functions declaration]=========================*/
 
-/*==================[internal functions definition]==========================*/
+/*==================[cplusplus]==============================================*/
 
-/*==================[external functions definition]==========================*/
-
-/* FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE RESET. */
-int main(void){
-
-   /* ------------- INICIALIZACIONES ------------- */
-
-   /* Inicializar la placa */
-   boardConfig();
-
-   /* ------------- REPETIR POR SIEMPRE ------------- */
-   while(1) {
-
-      /* Prendo el led azul */
-
-      gpioWrite( LEDB, ON );
-
-      delay(500);
-
-      /* Apago el led azul */
-      gpioWrite( LEDB, OFF );
-
-      delay(500);
-
-   }
-
-   /* NO DEBE LLEGAR NUNCA AQUI, debido a que a este programa no es llamado
-      por ningun S.O. */
-   return 0 ;
+#ifdef __cplusplus
 }
+#endif
 
 /*==================[end of file]============================================*/
+#endif /* #ifndef _LED_SEQUENCES_H_ */

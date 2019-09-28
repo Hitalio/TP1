@@ -37,8 +37,8 @@
 
 /*==================[inclusions]=============================================*/
 
-//#include "blinky.h"   // <= own header (optional)
-#include "sapi.h"       // <= sAPI header
+//#include "led_sequences.h"   // <= own header (optional)
+#include "sapi.h"              // <= sAPI header
 
 /*==================[macros and definitions]=================================*/
 
@@ -62,19 +62,75 @@ int main(void){
    /* Inicializar la placa */
    boardConfig();
 
+   /* Variable de Retardo no bloqueante */
+   delay_t delay;
+
+   /* Inicializar Retardo no bloqueante con tiempo en milisegundos
+      (500ms = 0,5s) */
+   delayConfig( &delay, 500 );
+
+   int8_t i = 3;
+   uint8_t sequence = 0;
+
    /* ------------- REPETIR POR SIEMPRE ------------- */
    while(1) {
 
-      /* Prendo el led azul */
+      if ( !gpioRead( TEC1 ) ){
+         sequence = 0;
+      }
+      if ( !gpioRead( TEC2 ) ){
+         /* Velocidad Rapida */
+         delayWrite( &delay, 150 );
+      }
+      if ( !gpioRead( TEC3 ) ){
+         /* Velocidad Lenta */
+         delayWrite( &delay, 750 );
+      }
+      if ( !gpioRead( TEC4 ) ){
+         sequence = 1;
+      }
 
-      gpioWrite( LEDB, ON );
+      /* delayRead retorna TRUE cuando se cumple el tiempo de retardo */
+      if ( delayRead( &delay ) ){
+         if ( !sequence ){
+            i--;
+         }
+         else{
+            i++;
+         }
+      }
 
-      delay(500);
+      if ( i == 0 ){
+         gpioWrite( LEDB, ON );
+         gpioWrite( LED1, OFF );
+         gpioWrite( LED2, OFF );
+         gpioWrite( LED3, OFF );
+      }
+      if ( i == 1 ){
+         gpioWrite( LEDB, OFF );
+         gpioWrite( LED1, ON );
+         gpioWrite( LED2, OFF );
+         gpioWrite( LED3, OFF );
+      }
+      if ( i == 2 ){
+         gpioWrite( LEDB, OFF );
+         gpioWrite( LED1, OFF );
+         gpioWrite( LED2, ON );
+         gpioWrite( LED3, OFF );
+      }
+      if ( i == 3 ){
+         gpioWrite( LEDB, OFF );
+         gpioWrite( LED1, OFF );
+         gpioWrite( LED2, OFF );
+         gpioWrite( LED3, ON );
+      }
 
-      /* Apago el led azul */
-      gpioWrite( LEDB, OFF );
-
-      delay(500);
+      if ( i < 0 ){
+         i = 3;
+      }
+      if ( i > 3 ){
+         i = 0;
+      }
 
    }
 
