@@ -44,6 +44,7 @@
             Donde el primer tipo de dato es una estructura que define la estructura de puertos
 ![](https://github.com/Hitalio/TP1/blob/master/images/LPC_GPIO_T.PNG)
 
+
 ## Punto 2: Switch Leds
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds1.PNG)
