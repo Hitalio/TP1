@@ -1,4 +1,6 @@
-# Punto 1: Blinky
+# Documentación sobre el TP1
+
+## Punto 1: Blinky
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/main.PNG)
 
@@ -42,12 +44,12 @@
             Donde el primer tipo de dato es una estructura que define la estructura de puertos
 ![](https://github.com/Hitalio/TP1/blob/master/images/LPC_GPIO_T.PNG)
 
-# Punto 2:
+## Punto 2:
 
-# Punto 3:
+## Punto 3:
 
-# Punto 4:
+## Punto 4:
 
-# Punto 5:
+## Punto 5:
 
-# Punto 6:
+## Punto 6:
