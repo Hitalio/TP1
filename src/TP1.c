@@ -50,7 +50,7 @@
  	 	 	 	 	               to PROJECT = projects/SE-2018-TPs/TP1 */
 
 
-#define TEST (TP1_2)
+#define TEST (TP1_3)
 
 
 /*==================[internal data declaration]==============================*/
@@ -142,6 +142,22 @@ int main(void)
 }
 
 #elif (TEST == TP1_3)
+
+/* FUNCION que se ejecuta cada vez que ocurre un Tick. */
+void myTickHook( void *ptr ){
+
+   static bool_t ledState = OFF;
+
+   gpioMap_t led = (gpioMap_t)ptr;
+
+   if( ledState ){
+      ledState = OFF;
+   }
+   else{
+      ledState = ON;
+   }
+   gpioWrite( led, ledState );
+}
 
 /* FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE RESET. */
 int main(void){
