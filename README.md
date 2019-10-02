@@ -49,7 +49,7 @@
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds1.PNG)
 
-Se comienza por configurar la placa EDU-CIA-NXP
+* Se comienza por configurar la placa EDU-CIA-NXP
 
 	* boardconfig() inicializa el hardware de la placa, inicilaiza el conteo de Ticks con tickInit() y configura los pines de entrada y salida para teclas
 	* gpioconfig es una estructura de tipo pinConfigLpc4337_t, que fue mencionada en el punto 1, recibe dos datos GPIO0 (gpioMap_t) y GPIO_INPUT (gpioConfig_t).
