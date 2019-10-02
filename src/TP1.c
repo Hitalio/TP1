@@ -50,7 +50,7 @@
  	 	 	 	 	               to PROJECT = projects/SE-2018-TPs/TP1 */
 #define TP1_4 (4) // Parpadeo dependiento del TICKRATE_MS y LED_TOGGLE_MS
 
-#define TP1_4 (5)
+#define TP1_5 (5)
 
 #define TEST (TP1_5)
 
@@ -259,7 +259,7 @@ int main(void) {
 			LED_Time_Flag = false;
 
 			if (LED_Toggle_Counter == 0) {
-				LED_Toggle_Counter = LED_TOGGLE_MS;
+				LED_Toggle_Counter = LED_TOGGLE_1000MS;
 				gpioToggle(LED3);
 			}
 			else
@@ -296,6 +296,7 @@ void myTickHook( void *ptr ) {
 
 
 /* FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE RESET. */
+
 int main(void) {
 
 	/* ------------- INICIALIZACIONES ------------- */
@@ -307,7 +308,7 @@ int main(void) {
 	/* Inicializar el conteo de Ticks con resolucion de 1ms (se ejecuta
        periodicamente una interrupcion cada TICKRATE_MS que incrementa un contador de
        Ticks obteniendose una base de tiempos). */
-	tickConfig( TICKRATE_1MS );
+	tickConfig( TICKRATE_100MS );
 
 	/* Se agrega ademas un "tick hook" nombrado myTickHook. El tick hook es
        simplemente una funcion que se ejecutara peri�odicamente con cada
@@ -345,13 +346,17 @@ int main(void) {
 			}
 			else
 				LED_Toggle_Counter--;
+
 		}
+
+
 	}
 
 	/* NO DEBE LLEGAR NUNCA AQUI, debido a que a este programa no es llamado
        por ningun S.O. */
 	return 0 ;
 }
+
 
 #endif
 
