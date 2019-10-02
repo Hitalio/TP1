@@ -47,7 +47,7 @@
 
 ## Punto 2: Switch Leds
 
-![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds1.PNG)
+![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds1.png)
 
  Se comienza por configurar la placa EDU-CIA-NXP
 
@@ -55,11 +55,11 @@
 	* gpioconfig es una estructura de tipo pinConfigLpc4337_t, que fue mencionada en el punto 1, recibe dos datos GPIO0 (gpioMap_t) y GPIO_INPUT (gpioConfig_t).
 	* valor es un tipo booleano que almacena el valor de la tecla leido.
 
-![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds2.PNG)
+![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds2.png)
 
 	*valor lee si el pulsador es presionado y guarda el valor 0 o 1.
 
-![](https://github.com/Hitalio/TP1/blob/master/images/gpioRead.PNG)
+![](https://github.com/Hitalio/TP1/blob/master/images/gpioRead.png)
 
 		*gpioRead() recibe el pulsador que fue presionado, el cual esta definido en gpioMap_t y devuelve una variable booleana ret_val dependiendo de si fue presionado el pulsador o no.
 		*gpioObtainPinConfig() fue analizada en el punto 1.
