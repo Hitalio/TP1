@@ -54,7 +54,7 @@
 
 #define TP1_6 (6) // Push Buttons
 
-#define TEST (TP1_5)
+#define TEST (TP1_4)
 
 
 /*==================[internal data declaration]==============================*/
