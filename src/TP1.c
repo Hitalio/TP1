@@ -232,6 +232,7 @@ void myTickHook( void *ptr ) {
 
 int main(void) {
 
+	uint32_t LED_num = LED1;
 	/* ------------- INICIALIZACIONES ------------- */
 	uint32_t LED_Toggle_Counter = 0;
 
@@ -241,7 +242,7 @@ int main(void) {
 	/* Inicializar el conteo de Ticks con resolucion de 1ms (se ejecuta
        periodicamente una interrupcion cada TICKRATE_MS que incrementa un contador de
        Ticks obteniendose una base de tiempos). */
-	tickConfig( TICKRATE_100MS );
+	tickConfig( TICKRATE_MS );
 
 	/* Se agrega ademas un "tick hook" nombrado myTickHook. El tick hook es
        simplemente una funcion que se ejecutara peri�odicamente con cada
@@ -251,32 +252,47 @@ int main(void) {
        al ejecutarse. En este ejemplo se utiliza para pasarle el led a titilar.
 	*/
 	tickCallbackSet( myTickHook, (void*)NULL );
-
+	gpioToggle(LED3);
 	/* ------------- REPETIR POR SIEMPRE ------------- */
 	while(1) {
 		__WFI();
 
-		if (LED_Time_Flag == true) {
+		if (LED_Time_Flag == true){
 			LED_Time_Flag = false;
 
+		if (LED_Toggle_Counter == 0) {
+			LED_Toggle_Counter = LED_TOGGLE_MS;
+
+			switch(LED_num)
+			{
+				case LED1:
+					!gpioToggle(LED3);
+					gpioToggle(LED1);
+					LED_num = LED2;
+					break;
+				case LED2:
+					!gpioToggle(LED1);
+					gpioToggle(LED2);
+					LED_num = LED3;
+					break;
+				case LED3:
+					!gpioToggle(LED2);
+					gpioToggle(LED3);
+					LED_num = LED1;
+					break;
+			}
+		}
+		else
+			LED_Toggle_Counter--;
+			/*
 			if (LED_Toggle_Counter == 0) {
-				LED_Toggle_Counter = LED_TOGGLE_1000MS;
+				LED_Toggle_Counter = LED_TOGGLE_MS;
 				gpioToggle(LED1);
-				delay(500);
-				!gpioToggle(LED1);
-				delay(500);
-				gpioToggle(LED2);
-				delay(500);
-				!gpioToggle(LED2);
-				delay(500);
-				gpioToggle(LED3);
-				delay(500);
-				!gpioToggle(LED3);
 			}
 			else
 				LED_Toggle_Counter--;
 			// hasta aca en el script original
-/*
+
 			if (LED_Toggle_Counter == 0) {
 				LED_Toggle_Counter = LED_TOGGLE_1000MS;
 				gpioToggle(LED2);
@@ -293,9 +309,7 @@ int main(void) {
 */
 		}
 
-
 	}
-
 	/* NO DEBE LLEGAR NUNCA AQUI, debido a que a este programa no es llamado
        por ningun S.O. */
 	return 0 ;
