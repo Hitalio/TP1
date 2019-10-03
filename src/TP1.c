@@ -54,7 +54,7 @@
 
 #define TP1_6 (6) // Push Buttons
 
-#define TEST (TP1_5)
+#define TEST (TP1_4)
 
 
 /*==================[internal data declaration]==============================*/
@@ -262,11 +262,21 @@ int main(void) {
 			if (LED_Toggle_Counter == 0) {
 				LED_Toggle_Counter = LED_TOGGLE_1000MS;
 				gpioToggle(LED1);
+				delay(500);
+				!gpioToggle(LED1);
+				delay(500);
+				gpioToggle(LED2);
+				delay(500);
+				!gpioToggle(LED2);
+				delay(500);
+				gpioToggle(LED3);
+				delay(500);
+				!gpioToggle(LED3);
 			}
 			else
 				LED_Toggle_Counter--;
 			// hasta aca en el script original
-
+/*
 			if (LED_Toggle_Counter == 0) {
 				LED_Toggle_Counter = LED_TOGGLE_1000MS;
 				gpioToggle(LED2);
@@ -280,7 +290,7 @@ int main(void) {
 			}
 			else
 				LED_Toggle_Counter--;
-
+*/
 		}
 
 
