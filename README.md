@@ -138,4 +138,15 @@ A continuación se muestra el bucle que se repetirá en el programa para realiza
 
 ## Punto 5:
 
+El punto 5 es parecido al punto 4 en cuanto al código, con el agregado de enviar por puerto serie un mensaje. Para realizar esto se utilizó la función debugPrintString(), la cuál llama a la función printString(). Esta última a su vez utiliza la función uartWriteString(), la cuál llama a una función que escribe byte a byte mediente UART. 
+
+A continuación se muestra el programa principal de este punto, el cuál hace parpadear un LED y en el mismo instante envia por puerto serie el mensaje "LED Toggle\n"
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto5_while.PNG)
+
+En la siguiente imagen se muestra lo que se visualiza por el monitor serie del IDE de arduino:
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto5_monitor_serie.PNG)
+
+
 ## Punto 6:
