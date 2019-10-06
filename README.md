@@ -119,8 +119,18 @@ Se repite el proceso para los distintos pulsadores y LEDS.
 
 ## Punto 3:
 
+A continuacion se analiza la funcion tick_01_tickHook, para eso se muestra la primera imagen que tiene la definicion de myTickHook:
+
 ![](https://github.com/Hitalio/TP1/blob/master/images/mytickhookTp1_3.png)
+- Esta funcion se ejecuta cada vez que ocurre un tick( o interrupcion). Y lo unico que hace es prender o apagar el LED pasado por argumento dependiendo de como estaba anteriormente (si estaba prendido se apga y viceversa).
+
+Por otro lado, se observa el main del programa que presenta dos funciones importante tickConfig(50) que me setea el conteo de las interrupciones a 50 mSeg, es decir, que se genera una interrupcion cada 50mSeg y por otro lado se tiene la funcion tickCallbackSet que esta definida en la siguiente figura:
+![](https://github.com/Hitalio/TP1/blob/master/images/tickcallbacksetTp1_3.png)
+- Esta funcion lo que hace es setear dos variables globales que en conjunto me define la funcion de interrupcion, en este caso lo que hace me setea la funcion de myTickHook (la que me prende el LED) con un argumento que es un ptr al LED que quiero prender. El primer argumento de tickCallbackSet me setea la variable global correspondiente a la funcion mientras el segundo parametro defino los argumentos que le paso a la funcion de interrupcion. En este caso, se tiene que myTickHook recibe un argumento que es un punturo al LED que quiero prender o apagar por eso cuando quiero prender un LED con la interrupcion uso mi funcion de tickCallbackSet.
 ![](https://github.com/Hitalio/TP1/blob/master/images/mainTp1_3.png)
+
+Por lo tanto, lo que sucede en este programa es que el led titilea porque cada 50 mSeg me genera una interrupcion y me me prende el LED pasado por segundo argumento de tickCallbackSet, cuando pasa 50 mSeg mas me lo apaga porque se vuelve a ejecutar myTickHook por lo que el led titilea 20 veces por segundo. Luego pasa al siguiente LED y hace lo mismo
+
 
 ## Punto 4:
 
