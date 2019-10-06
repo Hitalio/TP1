@@ -121,6 +121,21 @@ Se repite el proceso para los distintos pulsadores y LEDS.
 
 ## Punto 4:
 
+Para hacer portable el código del punto 3 (tickHooks), inicialmente se definieron ciertas macros, las cuales se muestran a continuación:
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto4_defines.PNG)
+
+Realizando estas definiciones, si se desea modificar los ticks por segundo solo es necesario modificar la macro TICKRATE_MS, sin necesidad de modificar el código. Estos ticks indican el tiempo de desborde del timer. Luego las macros correspondientes a LED_TOGGLE se definen para indicar el intervalo de tiempo en que el led se tenga que encender. 
+
+Luego se realizan ciertas inicializaciones. 
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto4_main_inicializacion.PNG)
+
+A continuación se muestra el bucle que se repetirá en el programa para realizar el parpadeo de 3 leds. En este caso se hace uso de la función gpioToggle(), a la cuál se pasa como argumento el led a modificar, es decir el led que se quiera prender o apagar. 
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto4_while.PNG)
+
+
 ## Punto 5:
 
 ## Punto 6:
