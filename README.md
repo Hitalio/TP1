@@ -119,6 +119,9 @@ Se repite el proceso para los distintos pulsadores y LEDS.
 
 ## Punto 3:
 
+![](https://github.com/Hitalio/TP1/blob/master/images/mytickhookTp1_3.png)
+![](https://github.com/Hitalio/TP1/blob/master/images/mainTp1_3.png)
+
 ## Punto 4:
 
 Para hacer portable el código del punto 3 (tickHooks), inicialmente se definieron ciertas macros, las cuales se muestran a continuación:
