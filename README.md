@@ -1,6 +1,27 @@
 # Documentación sobre el TP1
 
-## Punto 1: Blinky
+## Punto 1: Uso del IDE	
+
+Inicialmente se siguieron los pasos de la guia del TP1 para instalar todo lo necesario para su realización.
+
+Para la ejecución de cada programa se realiza la siguiente secuencia de pasos a seguir:
+
+- Click derecho sobre el proyecto (firmware_v2) 
+	- Clean Project
+	- Build Project
+
+![](https://github.com/Hitalio/TP1/blob/master/images/clean_build.PNG)
+
+- Click en Debug
+
+Si se modifica el archivo o se quiere ejecutar otro programa se tiene que abandonar el Debug:
+
+![](https://github.com/Hitalio/TP1/blob/master/images/debug_terminate.PNG)
+
+Luego se copio la carpeta sapi_examples/edu-ciaa-nxp/bare_metal/gpio/gpio_02_blinky a projects/TP1, la cuál corresponde con este repositorio de github. 
+
+
+
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/main.PNG)
 
