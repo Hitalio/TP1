@@ -16,35 +16,36 @@ Para la ejecución de cada programa se realiza la siguiente secuencia de pasos a
 
 Si se modifica el archivo o se quiere ejecutar otro programa se tiene que abandonar el Debug:
 
-![](https://github.com/Hitalio/TP1/blob/master/images/debug_terminate.PNG)
+![](https://github.com/Hitalio/TP1/blob/master/images/debug_terminate.png)
 
 Luego se copio la carpeta sapi_examples/edu-ciaa-nxp/bare_metal/gpio/gpio_02_blinky a projects/TP1, la cuál corresponde con este repositorio de github. 
 
-
-
+A continuación se muestra la documentación correspondiente al proyecto gpio_02_blinky:
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/main.PNG)
 
-* gpioWrite recibe gpioMap_t y un bool_t, que indican el led que quiero setear y el estado de este (prendido o apagado), respectivamente.
+- gpioWrite recibe gpioMap_t y un bool_t, que indican el led que quiero setear y el estado de este (prendido o apagado), respectivamente.
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/gpioWrite.PNG)
  
-     gpioMap_t -> tipo enumerativo asociado a la EDU-CIAA-NXP. Le pone nombre a los 62 pines. 
-     LEDB -> 42 del gpioMap_t   
+- gpioMap_t -> tipo enumerativo asociado a la EDU-CIAA-NXP. Le pone nombre a los 62 pines. 
+- LEDB -> 42 del gpioMap_t   
 
-     *  Se declaran 5 enteros -> pinNamePort, pinNamePin, func, gpioPort, gpioPin
-     *  Entra a gpioObtainPinConfig -> Le paso la dirección de memoria de los enteros definidos anteriormente para 
-                                       modificarlos.
+-  Se declaran 5 enteros -> pinNamePort, pinNamePin, func, gpioPort, gpioPin
+-  Entra a gpioObtainPinConfig -> Le paso la dirección de memoria de los enteros definidos anteriormente para 
+                                       modificarlos. 
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/gpioObtainPinConfig.PNG)
 
-          * Guardo un valor en los 5 enteros.
-          * Guardo los valores que están en el vector gpioPinsConfig en la posición LEDB
-                   * Entra a gpioPinsConfig es un vector de tipo pinConfigGpioLpc4337_t, el cuál es de la siguiente forma:
+- La función relaciona el LED que se le pasa con su dirección de puerto y pin
+- Guardo un valor en los 5 enteros.
+- Guardo los valores que están en el vector gpioPinsConfig en la posición LEDB
+	-Entra a gpioPinsConfig es un vector de tipo pinConfigGpioLpc4337_t, el cuál es de la siguiente forma:
 
+          
 ![](https://github.com/Hitalio/TP1/blob/master/images/pinConfigGpioLpc4337_t.PNG)
 
-                    * Los tipos de datos de esa estrucutra son:
+-Los tipos de datos de esa estrucutra son:
 
                     typedef struct{
                        int8_t port;
@@ -59,10 +60,13 @@ Luego se copio la carpeta sapi_examples/edu-ciaa-nxp/bare_metal/gpio/gpio_02_bli
                     } gpioConfigLpc4337_t;
 ------------------------------------------------------------------------
 
-     * Entro a Chip_GPIO_SetPinState
+- Entro a Chip_GPIO_SetPinState
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/Chip_GPIO_SetPinState.PNG)
-            Donde el primer tipo de dato es una estructura que define la estructura de puertos
+ 
+ - Se encarga de un 1 o un 0, es decir prendido o apagado, respectivamente, en la dirección del puerto y del pin correspondiente al LED elegido. 
+ - Donde el primer tipo de dato es una estructura que define la estructura de puertos
+
 ![](https://github.com/Hitalio/TP1/blob/master/images/LPC_GPIO_T.PNG)
 
 
