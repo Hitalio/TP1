@@ -64,8 +64,8 @@ A continuación se muestra la documentación correspondiente al proyecto gpio_02
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/Chip_GPIO_SetPinState.PNG)
  
- - Se encarga de un 1 o un 0, es decir prendido o apagado, respectivamente, en la dirección del puerto y del pin correspondiente al LED elegido. 
- - Donde el primer tipo de dato es una estructura que define la estructura de puertos
+ - Se encarga de poner un 1 o un 0, es decir prendido o apagado, respectivamente, en la dirección del puerto y del pin correspondiente al LED elegido. 
+ - Donde el primer tipo de dato es una estructura que define la estructura de puertos.
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/LPC_GPIO_T.PNG)
 
@@ -76,22 +76,22 @@ A continuación se muestra la documentación correspondiente al proyecto gpio_02
 
  Se comienza por configurar la placa EDU-CIA-NXP
 
-	* boardconfig() inicializa el hardware de la placa, inicilaiza el conteo de Ticks con tickInit() y configura los pines de entrada y salida para teclas
-	* gpioconfig es una estructura de tipo pinConfigLpc4337_t, que fue mencionada en el punto 1, recibe dos datos GPIO0 (gpioMap_t) y GPIO_INPUT (gpioConfig_t).
-	* valor es un tipo booleano que almacena el valor de la tecla leido.
+- boardconfig() inicializa el hardware de la placa, inicilaiza el conteo de Ticks con tickInit() y configura los pines de entrada y salida para teclas
+- gpioconfig es una estructura de tipo pinConfigLpc4337_t, que fue mencionada en el punto 1, recibe dos datos GPIO0 (gpioMap_t) y GPIO_INPUT (gpioConfig_t).
+- Valor es un tipo booleano que almacena el valor de la tecla leido.
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds2.png)
 
-	*valor lee si el pulsador es presionado y guarda el valor 0 o 1.
+- valor lee si el pulsador es presionado y guarda el valor 0 o 1.
 
 ![](https://github.com/Hitalio/TP1/blob/master/images/gpioRead.png)
 
-		*gpioRead() recibe el pulsador que fue presionado, el cual esta definido en gpioMap_t y devuelve una variable booleana ret_val dependiendo de si fue presionado el pulsador o no.
-		*gpioObtainPinConfig() fue analizada en el punto 1.
+- gpioRead() recibe el pulsador que fue presionado, el cual esta definido en gpioMap_t y devuelve una variable booleana ret_val dependiendo de si fue presionado el pulsador o no.
+- gpioObtainPinConfig() fue analizada en el punto 1.
 
-	*gpioWrite() recibe el LED que se desea prender, el cual esta definido en gpioMap_t, y el valor booleano de si fue presionado el pulsador. Fue analizada en el punto 1.
+- gpioWrite() recibe el LED que se desea prender, el cual esta definido en gpioMap_t, y el valor booleano de si fue presionado el pulsador. Fue analizada en el punto 1.
 
-	Se repite el proceso para los distintos pulsadores y LEDS.
+Se repite el proceso para los distintos pulsadores y LEDS.
 
 ## Punto 3:
 
