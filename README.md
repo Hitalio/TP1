@@ -72,6 +72,30 @@ A continuación se muestra la documentación correspondiente al proyecto gpio_02
 
 ## Punto 2: Switch Leds
 
+### Compilación condicional
+
+Para realizar compilación condicional se definieron ciertas macros al principio del código de TP1.c. Estas definen cada punto del presente trabajo. 
+
+![](https://github.com/Hitalio/TP1/blob/master/images/compilacion_condicional.PNG)
+
+Luego se escribió el código de la siguiente manera:
+
+#if (TEST == TP1_1)
+
+	// Código correspondiente al punto 1.
+
+#elif (TEST == TP1_2)
+
+	// Código correspondiente al punto 2.
+
+(...)
+
+#endif
+
+Entonces modificando la línea #define TEST (TP1_4) de la imagen anterior se puede ejecutar el código deseado.
+
+### Switch Leds
+
 ![](https://github.com/Hitalio/TP1/blob/master/images/main_switch_leds1.png)
 
  Se comienza por configurar la placa EDU-CIA-NXP
