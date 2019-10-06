@@ -150,3 +150,16 @@ En la siguiente imagen se muestra lo que se visualiza por el monitor serie del I
 
 
 ## Punto 6:
+
+Por último, en el último código se utiliza un flag para un botón, a diferencia del punto anterior en donde se utiiliza un flag de tiempo.  
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto6_myTickHook.PNG)
+
+Si el estado del flag del botón es verdadero, significa que el botón se encuentra presionado. 
+
+Luego la lógica del programa es similar al anterior:
+
+![](https://github.com/Hitalio/TP1/blob/master/images/punto6_while.PNG)
+
+Cuando los flags del botón se encuentran en estado true se realiza el parpadeo de los leds. En este caso cuando se presiona el botón TEC1 los 4 leds de la EDU-CIAA comienzan a parpadear alternadamente y al mismo tiempo se observa por el monitor serie el mensaje "LED Toggle".
+En este caso, definiendo una variable para los leds (idx) y mediante la siguiente línea: ((idx > LEDR) ? idx-- : (idx = LED3)); se va modificando el led que se quiera prender/apagar.
